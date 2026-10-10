@@ -1,0 +1,101 @@
+main, header, footer, article, aside, nav {
+    border:1xp solid gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+body {
+background-color: brown;
+max-width: 1000px;
+margin: auto;
+
+}
+main {
+background-color: rgb(207, 168, 168);
+}
+header{
+background-color: rgb(79, 42, 165);
+}
+nav {
+background-color: rgb(228, 210, 210);
+}
+aside {
+background-color: rgb(212, 20, 100);
+}
+article {
+background-color: rgb(226, 216, 216);
+}
+
+/*Menü nav kialakítása*/
+
+nav ul {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding:0;
+    list-style-type: none;
+
+
+}
+nav a {
+    text-decoration: none;
+}
+nav ul li {
+    padding: 10px;
+    background-color: white;
+}
+nav ul li:hover {
+    background-color: blue;
+}
+
+
+nav ul li:hover a{
+    color: white;
+}
+
+/*Oldalszerkezet kialakítása*/
+
+main {
+    display:grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: " h h "
+                         " n n "
+                         " ar as "
+                         " f f ";
+                        
+}
+/*Minden gyerekelemnek nevet adunk*/
+header {
+    grid-area:h
+}
+nav{
+    grid-area:n;
+}
+article{
+    grid-area: ar;
+}
+aside {
+    grid-area: as;
+}
+footer {
+    grid-area: f;
+}
+/* reszponzivitás kialakítása
+Minden megjelenítő eszközön "jól néz ki", illeszkedik és
+ehhez töréspontot használunk, ahol átrendeződik az oldal*/
+
+@media screen and (max-width:600px) {
+    nav ul {
+    
+        grid-template-columns: 1fr;
+    }
+    main {
+        
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "h"
+            "n"
+            "ar"
+            "as"
+            "f"
+        ;
+    }
+}
